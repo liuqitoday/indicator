@@ -45,9 +45,11 @@ applicant:
   - name: 张三                                 # 申请人真实姓名
     nickname: zhangsan                        # 申请人昵称，推送到微信时会显示改昵称
     code: 1234102865678                       # 申请人申请编码
+    applyDate: 2022年02月09日                  # 申请日期
   - name: 王五
     nickname: wangwu
     code: 3256102247899
+    applyDate: 2022年02月09日
 
 cron: '0 0 8 27,28,29 * *'                    # cron表达式，可以自定义时间
 ```
@@ -67,7 +69,36 @@ nohup ./indicator &
 tail -f nohup.out
 ```
 
-## 后记
+## Docker 方式使用
+1、 宿主机中创建配置文件 app.yaml ，填写如下内容，并按照实际情况进行修改
+```
+# server酱：https://sct.ftqq.com/
+serverChan:
+  secret: SCT15665TJKOcMpEdZ   # 密钥
+
+# 指标申请人，可以填写多个
+applicant:
+  - name: 张三                                 # 申请人真实姓名
+    nickname: zhangsan                        # 申请人昵称，推送到微信时会显示改昵称
+    code: 1234102865678                       # 申请人申请编码
+    applyDate: 2022年02月09日                  # 申请日期，可填写任意值，仅用于提醒自己记得去手动续期
+  - name: 王五
+    nickname: wangwu
+    code: 1234567897899
+    applyDate: 2022年02月10日
+
+cron: '0 0 8 27,28,29 * *'                    # cron表达式，可以自定义时间
+```
+2、在 app.yaml 目录下使用以下命令运行，可根据需求修改
+```
+docker run -d \
+  -v $PWD/app.yaml:/app.yaml \
+  --name indicator \
+  --restart unless-stopped \
+  liuqitoday/indicator:latest
+```
+
+## 后记（telami）
 兄弟们，我改成竞拍了，现在牌子已经上完了
 
 ![gKmADx](http://cdn.telami.cn/uPic/gKmADx.png)

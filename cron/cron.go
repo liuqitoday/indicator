@@ -30,7 +30,7 @@ func Run() {
 		res := service.Congratulate(a.Code, a.Name)
 		var msg = ""
 		if res {
-			msg = "%s， 你中签了！！！"
+			msg = "%s， 你中签了！！！申请日期：%s"
 		} else {
 			msg = "%s， 这次又没有中啊。申请日期：%s"
 		}
