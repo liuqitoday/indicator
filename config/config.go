@@ -19,9 +19,10 @@ type Config struct {
 
 	// 指标申请人
 	Applicant []struct {
-		Name     string `yaml:"name"`
-		Nickname string `yaml:"nickname"`
-		Code     string `yaml:"code"`
+		Name      string `yaml:"name"`
+		Nickname  string `yaml:"nickname"`
+		Code      string `yaml:"code"`
+		ApplyDate string `yaml:"applyDate"`
 	} `yaml:"applicant"`
 }
 

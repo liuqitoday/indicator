@@ -30,11 +30,11 @@ func Run() {
 		res := service.Congratulate(a.Code, a.Name)
 		var msg = ""
 		if res {
-			msg = "%s, 你中签了！！！"
+			msg = "%s， 你中签了！！！"
 		} else {
-			msg = "%s, 这次又没有中啊..."
+			msg = "%s， 这次又没有中啊。申请日期：%s"
 		}
-		content := fmt.Sprintf(msg, a.Nickname)
+		content := fmt.Sprintf(msg, a.Nickname, a.ApplyDate)
 		//推送消息到微信
 		result := service.SendWechatNotification(conf.ServerChan.Secret, url.QueryEscape(content))
 		log.Info(result)
