@@ -10,6 +10,10 @@ ENV GO111MODULE=on \
 # 移动到工作目录：/build
 WORKDIR /build
 
+# install ca-certificates
+RUN apk update && apk upgrade && apk add --no-cache ca-certificates
+RUN update-ca-certificates
+
 # 将代码复制到容器中
 COPY . .
 
@@ -21,7 +25,11 @@ RUN go build -o app .
 ###################
 FROM scratch
 
+# 复制应用配置文件
 COPY app.yaml /
+
+# 复制 ca-certificates
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # 从builder镜像中把/dist/app 拷贝到当前目录
 COPY --from=builder /build/app /
