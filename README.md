@@ -31,9 +31,9 @@ Indicator是一个由go编写，可以定时推送中签结果到微信的服务
 
 ![EmiuYAeXROj7cDJ](https://i.loli.net/2021/03/08/EmiuYAeXROj7cDJ.png)
 
-4、从[release版本](https://github.com/telami/indicator/releases) 中选择最新的下载
+4、从[release版本](https://github.com/liuqitoday/indicator/releases) 中选择最新的下载
 
-5、修改配置文件[app.yaml](https://github.com/telami/indicator/blob/master/app.yaml)
+5、修改配置文件[app.yaml](https://github.com/liuqitoday/indicator/blob/master/app.yaml)
 
 ```
 # server酱：https://sct.ftqq.com/
