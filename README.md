@@ -98,6 +98,9 @@ docker run -d \
   liuqitoday/indicator:latest
 ```
 
+## 后记
+兄弟们，我摇号中了，中了之后官方会发短信通知的，哈哈
+
 ## 后记（telami）
 兄弟们，我改成竞拍了，现在牌子已经上完了
 
